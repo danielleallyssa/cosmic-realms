@@ -59,7 +59,12 @@ function getTodaysDate() {
 
 function swapDOMContent(obj) {
   document.querySelector("h2").textContent = obj.title;
-  document.querySelector("img").src = obj.hdurl;
-  document.querySelector("img").alt = obj.title;
+  if (obj.media_type === "video") {
+    console.log("video");
+  } else {
+    document.querySelector("img").src = obj.hdurl;
+    document.querySelector("img").alt = obj.title;
+  }
+
   document.querySelector("#description").textContent = obj.explanation;
 }
